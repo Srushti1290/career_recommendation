@@ -91,9 +91,19 @@
             }
         }
         @media (max-width: 767px) {
-            .motivational-quote {
-                font-size: 34px;
+          .form-container {
+                width: 100%; 
+                padding: 20px; 
             }
+            .motivational-quote {
+                font-size: 14px;
+            }
+            .login-container {
+                padding: 20px;
+            }
+        }
+        .toast-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -101,8 +111,8 @@
 <div class="signup-container">
     <div class="form-container"><br>
         <h3>Sign Up</h3>
-        <p>Already have an account? <a href="login.htm">Login</a></p>
-        <form id="signupForm">
+        <p>Already have an account? <a href="/Hackathon/login.html">Login</a></p>
+        <form>
             <div class="mb-3">
                 <label class="form-label">Full Name</label>
                 <input type="text" class="form-control" placeholder="Enter name" required>
