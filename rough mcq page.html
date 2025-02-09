@@ -1,0 +1,63 @@
+You can achieve this in a multiple-choice questions (MCQ) webpage using JavaScript. Here’s an example of how you can implement a pop-up notification if a user skips a question:
+
+HTML Example
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCQ Example</title>
+</head>
+<body>
+  <h2>MCQ Quiz</h2>
+  <form id="mcqForm">
+    <p>1. What is the capital of France?</p>
+    <input type="radio" name="q1" value="Paris"> Paris<br>
+    <input type="radio" name="q1" value="London"> London<br>
+    <input type="radio" name="q1" value="Rome"> Rome<br><br>
+
+    <p>2. What is 2 + 2?</p>
+    <input type="radio" name="q2" value="3"> 3<br>
+    <input type="radio" name="q2" value="4"> 4<br>
+    <input type="radio" name="q2" value="5"> 5<br><br>
+
+    <button type="button" onclick="validateForm()">Submit</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const form = document.getElementById('mcqForm');
+      const questions = ['q1', 'q2'];
+      let unanswered = [];
+
+      questions.forEach((q) => {
+        const answer = form.querySelector(input[name="${q}"]:checked);
+        if (!answer) {
+          unanswered.push(q);
+        }
+      });
+
+      if (unanswered.length > 0) {
+        alert(You didn't answer question(s): ${unanswered.join(', ')}. Please answer all questions.);
+      } else {
+        alert('Thank you for completing the quiz!');
+      }
+    }
+  </script>
+</body>
+</html>
+
+How It Works:
+
+1. The validateForm() function checks if each question has a selected answer.
+
+
+2. If a question is unanswered, it adds that question to an array (unanswered).
+
+
+3. If there are any unanswered questions, it displays a pop-up (alert) listing the questions the user missed.
+
+
+
+Do you want the pop-up to be a modal instead of a browser alert? I can modify it if needed.
