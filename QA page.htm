@@ -104,7 +104,7 @@
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="q1" value="1f" id="q1f">
-            <label class="form-check-label" for="q1f">Understanding people’s emotions and providing psychological support.</label>
+            <label class="form-check-label" for="q1f">Understanding people's emotions and providing psychological support.</label>
           </div>
           <div class="form-check">
             <input class="form-check-input" type="radio" name="q1" value="1g" id="q1g">
@@ -475,29 +475,50 @@
       </div>
     </form>
   </div>
-
   <script>
-    let currentQuestion = 0;
-    const questions = document.querySelectorAll('.question');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    const submitBtn = document.getElementById('submitBtn');
+  let currentQuestion = 0;
+  const questions = document.querySelectorAll('.question'); // Ensure your questions have the 'question' class
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
 
-    function showQuestion(index) {
-      questions.forEach(q => q.classList.remove('active'));
-      questions[index].classList.add('active');
-      prevBtn.disabled = index === 0;
-      nextBtn.style.display = index === questions.length - 1 ? 'none' : 'inline-block';
-      submitBtn.style.display = index === questions.length - 1 ? 'inline-block' : 'none';
+  function showQuestion(index) {
+    questions.forEach(q => q.classList.remove('active')); // Remove active class from all questions
+    questions[index].classList.add('active'); // Add active class to the current question
+    prevBtn.disabled = index === 0; // Disable prev button on the first question
+    nextBtn.style.display = index === questions.length - 1 ? 'none' : 'inline-block'; // Hide next button on last question
+    submitBtn.style.display = index === questions.length - 1 ? 'inline-block' : 'none'; // Show submit button on last question
+  }
+
+  nextBtn.addEventListener('click', () => showQuestion(++currentQuestion));
+  prevBtn.addEventListener('click', () => showQuestion(--currentQuestion));
+
+  document.getElementById('mcqForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    validateForm(); // Call validateForm when submitting
+  });
+
+  function validateForm() {
+    const form = document.getElementById('mcqForm');
+    const unanswered = []; // Store unanswered questions
+
+    // Check if each question has an answer
+    for (let i = 1; i <= 10; i++) { // Loop through all 10 questions
+      const answer = form.querySelector(`input[name="q${i}"]:checked`); // Check if each question has a selected answer
+      if (!answer) {
+        unanswered.push(i); // If no answer, push the question number to unanswered array
+      }
     }
 
-    nextBtn.addEventListener('click', () => showQuestion(++currentQuestion));
-    prevBtn.addEventListener('click', () => showQuestion(--currentQuestion));
+    if (unanswered.length > 0) {
+      alert(`You didn't answer question(s): ${unanswered.join(', ')}. Please answer all questions.`);
+    } else {
+      alert('Thank you for completing the quiz!');
+    }
+  }
 
-    document.getElementById('mcqForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Thank you for submitting the quiz!");
-    });
-  </script>
+  showQuestion(currentQuestion); // Initially display the first question
+</script>
+
 </body>
 </html>
