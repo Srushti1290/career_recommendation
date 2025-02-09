@@ -1,107 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MentorPath – Your Career Guidance Partner</title>
+  <title>Home</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
+    /* Global Styles */
+    * {
       margin: 0;
       padding: 0;
-      background: #f7f9fc;
-      color: #333;
+      box-sizing: border-box;
     }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7f9fc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-bottom: 20px;
+    }
+
+    /* Color Palette */
+    :root {
+      --primary-color: #2c3e50;
+      --secondary-color: #e74c3c;
+      --accent-color: #34495e;
+      --background-color: #f7f9fc;
+      --white: #fff;
+      --light-gray: #ecf0f1;
+      --dark-gray: #333;
+    }
+
+    /* Navbar */
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background: #2c3e50;
-      color: white;
+      padding: 20px 40px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
+
     .navbar .logo {
-      font-size: 24px;
+      font-size: 28px;
       font-weight: 600;
     }
+
     .navbar .nav-links {
       list-style: none;
       display: flex;
-      gap: 20px;
+      gap: 30px;
     }
+
     .navbar .nav-links li a {
       text-decoration: none;
-      color: white;
+      color: var(--white);
       font-weight: 300;
+      font-size: 16px;
+      transition: color 0.3s ease;
     }
+
+    .navbar .nav-links li a:hover {
+      color: var(--secondary-color);
+    }
+
     .navbar .btn {
-      background: #e74c3c;
-      color: white;
-      padding: 10px 20px;
+      background: var(--secondary-color);
+      color: var(--white);
+      padding: 12px 30px;
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 16px;
+      transition: background 0.3s ease;
     }
+
+    .navbar .btn:hover {
+      background: #c0392b;
+    }
+
+    /* Hero Section */
     .hero {
       text-align: center;
       padding: 100px 20px;
-      background: linear-gradient(to right, #2c3e50, #34495e);
-      color: white;
+      background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+      color: var(--white);
+      margin-bottom: 40px;
     }
+
     .hero h1 {
       font-size: 48px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
+
     .hero p {
       font-size: 20px;
       margin-bottom: 30px;
     }
+
     .hero .hero-btn {
-      background: #e74c3c;
-      color: white;
+      background: var(--secondary-color);
+      color: var(--white);
       padding: 15px 30px;
       border-radius: 5px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 18px;
+      transition: background 0.3s ease;
     }
+
+    .hero .hero-btn:hover {
+      background: #c0392b;
+    }
+
+    /* Services Section */
     .services {
-      padding: 50px 20px;
+      padding: 60px 20px;
+      background: var(--light-gray);
       text-align: center;
-      background: #ecf0f1;
+      margin-bottom: 40px;
     }
+
     .services h2 {
       font-size: 32px;
-      margin-bottom: 30px;
+      margin-bottom: 40px;
     }
+
     .service-list {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       flex-wrap: wrap;
     }
+
     .service {
-      width: 30%;
-      background: white;
-      padding: 20px;
-      margin: 10px;
+      width: 22%;
+      background: var(--white);
+      padding: 25px;
+      margin: 15px;
       border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .service:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
     .service h3 {
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 10px;
     }
+
     .service p {
       font-size: 16px;
     }
-    .footer {
-      background: #2c3e50;
-      color: white;
+
+    /* Mentor Profile Photo */
+    .mentor-info {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    /* Feedback Button Style */
+    .service button a {
+      color: var(--white);
+      text-decoration: none;
+      background: var(--secondary-color);
+      padding: 12px 24px;
+      /* Increase padding for a larger button */
+      border-radius: 5px;
+      font-weight: 600;
+      font-size: 16px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .service button a:hover {
+      background: #c0392b;
+      transform: translateY(-5px);
+      /* Adds a slight lift effect on hover */
+    }
+
+    /* Footer Section */
+    footer {
       text-align: center;
       padding: 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--white);
+      font-size: 24px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--secondary-color);
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .service-list {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .service {
+        width: 80%;
+        margin: 20px 0;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .navbar .hamburger {
+        display: block;
+      }
+
+      .navbar .nav-links {
+        display: none;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .navbar .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+      }
     }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar -->
@@ -110,44 +260,73 @@
     <ul class="nav-links">
       <li><a href="#">Home</a></li>
       <li><a href="#">About Us</a></li>
-      <li><a href="#">Our Mentors</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#">Contact Us</a></li>
     </ul>
-    <a href="#" class="btn">Get Guidance</a>
+    <a href="#" class="btn" id="login-btn" onclick="toggleLoginStatus()">Log In</a>
   </nav>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Your Career, Our Guidance</h1>
-      <p>Personalized mentorship to help you navigate your career journey.</p>
-      <a href="#" class="hero-btn">Find a Mentor</a>
-    </div>
+    <h1>Welcome, Name</h1>
+    <p>Personalized mentorship to help you navigate your career journey.</p>
+    <a href="#" class="hero-btn">Take a Survey</a>
   </section>
 
-  <!-- Services Section -->
+  <!-- Main Section -->
   <section class="services">
-    <h2>Our Mentorship Services</h2>
     <div class="service-list">
       <div class="service">
-        <h3>🌟 One-on-One Mentorship</h3>
-        <p>Get personalized guidance from experienced professionals.</p>
+        <h3>Mentorship</h3>
+        <div class="mentor-info">
+          <p>Have your mentor</p>
+        </div>
       </div>
       <div class="service">
-        <h3>📅 Career Planning</h3>
-        <p>Build a roadmap for your career success with expert advice.</p>
+        <h3>Career Guidance</h3>
+        <p>Get personalized career guidance to help you find the right path.</p>
       </div>
       <div class="service">
-        <h3>📈 Growth & Development</h3>
-        <p>Enhance your skills and knowledge with our continuous support.</p>
+        <h3>Professional Development</h3>
+        <p>Enhance your skills and grow professionally with expert mentoring.</p>
+      </div>
+      <div class="service">
+        <h3>Feedback</h3>
+        <button><a href="#">Give Your Feedback</a></button> <!-- Feedback Button -->
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
+  <!-- Footer Section -->
+  <footer>
+    <div class="footer-links">
+      <a href="#" target="_blank" class="fab fa-linkedin"></a> <!-- LinkedIn Icon -->
+      <a href="#" target="_blank" class="fab fa-github"></a> <!-- GitHub Icon -->
+      <a href="#" target="_blank" class="fab fa-instagram"></a> <!-- Instagram Icon -->
+    </div>
     <p>&copy; 2025 MentorPath. All rights reserved.</p>
   </footer>
+  <script>
+    // Simulate login status
+    let isLoggedIn = false;
 
+    // Toggle Log In / Log Out button
+    function toggleLoginStatus() {
+      const loginBtn = document.getElementById('login-btn');
+      isLoggedIn = !isLoggedIn;
+
+      if (isLoggedIn) {
+        loginBtn.textContent = "Log Out"; // Change text to "Log Out"
+      } else {
+        loginBtn.textContent = "Log In"; // Change text to "Log In"
+      }
+    }
+
+    // Toggle Mobile Menu (if needed in future for responsiveness)
+    function toggleMobileMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('mobile-active');
+    }
+  </script>
 </body>
+
 </html>
